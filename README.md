@@ -1,3 +1,9 @@
+# Weather App
+
+![](./src/assets/gif.gif)
+
+Here's how it looks in Vercel : [Weather App](https://react-weather-d9wmonaep-mustafahincal.vercel.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
