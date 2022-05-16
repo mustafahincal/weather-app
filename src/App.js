@@ -1,8 +1,11 @@
 import Container from "./components/Container";
+import { WeatherProvider } from "./context/WeatherContext";
 function App() {
    return (
       <>
-         <Container />
+         <WeatherProvider>
+            <Container />
+         </WeatherProvider>
       </>
    );
 }
