@@ -9,6 +9,7 @@ export const WeatherProvider = ({ children }) => {
    const [city, setCity] = useState({});
    const [cityInput, setCityInput] = useState("");
    const [control, setControl] = useState(false);
+   const [cityControl, setCityControl] = useState(false);
 
    const days = [
       "Pazar",
@@ -41,7 +42,6 @@ export const WeatherProvider = ({ children }) => {
    }, []);
 
    const setCurrentCity = (value) => {
-      setControl(false);
       if (value !== undefined) {
          let val = [...value];
 
@@ -63,10 +63,11 @@ export const WeatherProvider = ({ children }) => {
 
          console.log(cityObject);
          if (!cityObject) {
-            alert("Şehir bulunamadı!");
+            setCityControl(true);
+            setCityInput("");
             return;
          }
-
+         setControl(false);
          setCity(cityObject);
          searchCity(
             `https://api.openweathermap.org/data/2.5/onecall?lat=${cityObject.latitude}&lon=${cityObject.longitude}&units=metric&exclude=current,minutely,hourly,alerts&lang=tr&appid=7c6a1c907bcbf2ce8d3113f138e0e181`
@@ -75,14 +76,14 @@ export const WeatherProvider = ({ children }) => {
    };
 
    const searchCity = (url) => {
-      console.log(url);
-      axios(url)
-         .then((res) => {
-            setData(res.data);
-            setControl(true);
-         })
-         .catch((e) => console.log(e.message));
-
+      setTimeout(() => {
+         axios(url)
+            .then((res) => {
+               setData(res.data);
+               setControl(true);
+            })
+            .catch((e) => console.log(e.message));
+      }, 500);
       setCityInput("");
    };
 
@@ -100,6 +101,8 @@ export const WeatherProvider = ({ children }) => {
       localeDateString,
       dayIndex,
       getDay,
+      cityControl,
+      setCityControl,
       setCurrentCity,
    };
 

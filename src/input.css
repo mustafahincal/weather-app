@@ -4,3 +4,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+   .modal {
+      @apply w-full h-full bg-black fixed inset-0  bg-opacity-0 invisible;
+   }
+   .modal.active {
+      @apply bg-opacity-50 visible;
+   }
+}
