@@ -1,8 +1,8 @@
 # Weather App
 
-![](./src/assets/gif.gif)
+![](./src/assets/weather.gif)
 
-Here's how it looks in Vercel : [Weather App](https://react-weather-d9wmonaep-mustafahincal.vercel.app/)
+Here's how it looks in Vercel : [Weather App](https://react-weather-app-hazel-two.vercel.app/)
 
 # Getting Started with Create React App
 
